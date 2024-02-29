@@ -5,10 +5,13 @@
 }
 
 :root {
-  --background: #eff8ff;
+  --background: rgba(210, 231, 247, 0.7);
+  --dark-blue: #062f78;
+  --light-blue: #6ce5f5;
+  --light-grey: #abb1ba;
 }
 
 .app__container {
-  background-color: rgba(210, 231, 247, 0.7);
+  background-color: var(--background);
   min-height: 100vh;
 }

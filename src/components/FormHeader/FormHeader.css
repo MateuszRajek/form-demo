@@ -5,22 +5,22 @@
 .custom__progress__bar .progress-bar {
   padding-right: 10px;
   text-align: right;
-  background-color: #6ce5f5;
+  background-color: var(--light-blue);
 }
 
 .progress__bar__counter {
-  color: #abb1ba;
+  color: var(--light-grey);
   margin-bottom: 10px;
 }
 
 .step__header {
-  color: #062f78;
+  color: var(--dark-blue);
   font-size: 20px;
   font-weight: bold;
 }
 
 .line__break {
   height: 1px;
-  background-color: #abb1ba;
+  background-color: var(--light-grey);
   margin: 20px 0;
 }
