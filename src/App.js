@@ -1,15 +1,12 @@
-import { useEffect } from "react";
 import "./App.css";
-import { updateForm } from "./store/Form/actions";
-import { useDispatch } from "react-redux";
+import AppointmentForm from "./components/AppointmentForm";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    console.log();
-    dispatch(updateForm("Mateusz"));
-  }, []);
-  return <div className="App">Test</div>;
+  return (
+    <div className="app__container">
+      <AppointmentForm />
+    </div>
+  );
 }
 
 export default App;

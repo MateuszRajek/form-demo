@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #eff8ff;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.app__container {
+  width: 780px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
