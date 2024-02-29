@@ -4,30 +4,3 @@
   margin: 0 auto;
   padding: 20px 40px;
 }
-
-.custom__progress__bar {
-  margin-bottom: 30px;
-}
-
-.custom__progress__bar .progress-bar {
-  padding-right: 10px;
-  text-align: right;
-  background-color: #6ce5f5;
-}
-
-.progress__bar__counter {
-  color: #abb1ba;
-  margin-bottom: 10px;
-}
-
-.step__header {
-  color: #062f78;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.line__break {
-  height: 1px;
-  background-color: #abb1ba;
-  margin: 20px 0;
-}
