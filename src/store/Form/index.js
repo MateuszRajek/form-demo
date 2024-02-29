@@ -1,5 +1,5 @@
 const initialState = {
-  form: {},
+  form: "test",
 };
 
 export default (state = initialState, action) => {
