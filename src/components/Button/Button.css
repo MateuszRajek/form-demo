@@ -1,0 +1,15 @@
+.button {
+  width: 200px;
+  padding: 8px 25px;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+}
+
+.button--light {
+  background-color: var(--light-blue);
+}
+
+.button--dark {
+  background-color: var(--dark-blue);
+}

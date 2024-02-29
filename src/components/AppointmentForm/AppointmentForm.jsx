@@ -7,6 +7,7 @@ import PatientAddress from "../FormSteps/PatientAddress";
 import PatientDetails from "../FormSteps/PatientDetails";
 import "./AppointmentForm.css";
 import FormHeader from "../FormHeader";
+import Button from "../Button";
 
 const screens = {
   appointment: AppointmentDetails,
@@ -27,13 +28,28 @@ const steps = [
 const AppointmentForm = () => {
   const [stepsCounter, setStepsCounter] = useState(0);
 
+  const onNextClick = (event) => {
+    event.preventDefault();
+    if (stepsCounter < steps.length - 1) {
+      setStepsCounter((prevStep) => prevStep + 1);
+    }
+  };
+
+  const onPreviousClick = () => {
+    setStepsCounter((prevStep) => prevStep - 1);
+  };
+
   const ActiveScreen = screens[steps[stepsCounter].step];
 
   return (
     <div className="form__container">
-      <Form>
+      <Form onSubmit={onNextClick}>
         <FormHeader stepsCounter={stepsCounter} steps={steps} />
         <ActiveScreen />
+        <div className="buttons__wrapper">
+          {stepsCounter !== 0 && <Button label="Previous" color="light" type="button" action={onPreviousClick} />}
+          <Button label="Next" color="dark" type="submit" action={onNextClick} />
+        </div>
       </Form>
     </div>
   );

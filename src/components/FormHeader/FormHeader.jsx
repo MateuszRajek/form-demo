@@ -4,7 +4,8 @@ import "./FormHeader.css";
 
 const FormHeader = ({ stepsCounter, steps }) => {
   const stepsCounterText = `Step ${stepsCounter + 1} of ${steps.length}`;
-  const progress = (stepsCounter + 1 / steps.length) * 100;
+  const progress = ((stepsCounter + 1) / steps.length) * 100;
+
   const stepTitle = steps[stepsCounter].title;
   return (
     <>

@@ -4,3 +4,10 @@
   margin: 0 auto;
   padding: 20px 40px;
 }
+
+.buttons__wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}

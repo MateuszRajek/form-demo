@@ -1,7 +1,7 @@
 import "./Form.css";
 
-const Form = ({ children }) => {
-  return <form>{children}</form>;
+const Form = ({ children, onSubmit }) => {
+  return <form onSubmit={onSubmit}>{children}</form>;
 };
 
 export default Form;
