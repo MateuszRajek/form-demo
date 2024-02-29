@@ -8,12 +8,7 @@
   --background: #eff8ff;
 }
 
-body {
-  background-color: var(--background);
-}
-
 .app__container {
-  width: 780px;
-  margin: 0 auto;
-  padding: 20px 40px;
+  background-color: rgba(210, 231, 247, 0.7);
+  min-height: 100vh;
 }
