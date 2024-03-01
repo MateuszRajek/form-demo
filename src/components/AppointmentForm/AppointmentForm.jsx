@@ -28,13 +28,27 @@ const steps = [
   { step: "consent", title: "Consent", key: "consent" },
 ];
 
+function formatDate(date) {
+  if (date) {
+    let day = date.getDate().toString().padStart(2, "0");
+    let month = (date.getMonth() + 1).toString().padStart(2, "0"); // Miesiące są od 0 do 11
+    let year = date.getFullYear();
+
+    return `${day}-${month}-${year}`;
+  }
+}
+
 const AppointmentForm = () => {
   const [stepsCounter, setStepsCounter] = useState(0);
 
-  const { register, handleSubmit } = useForm();
+  const { control, register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+    if (data.date && typeof data.date === "object") {
+      data.date = formatDate(data.date);
+    }
+
     dispatch(updateForm(data));
 
     if (stepsCounter < steps.length - 1) {
@@ -52,7 +66,7 @@ const AppointmentForm = () => {
     <div className="form__container">
       <FormHeader stepsCounter={stepsCounter} steps={steps} />
       <Form onSubmit={onSubmit} handleSubmit={handleSubmit}>
-        <ActiveScreen register={register} />
+        <ActiveScreen register={register} control={control} />
         <div className="buttons__wrapper">
           {stepsCounter !== 0 && <Button label="Previous" color="light" type="button" action={onPreviousClick} />}
           <Button label="Next" color="dark" type="submit" />
