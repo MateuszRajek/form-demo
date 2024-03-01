@@ -9,6 +9,8 @@ import "./AppointmentForm.css";
 import FormHeader from "../FormHeader";
 import Button from "../formComponents/Button";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { updateForm } from "../../store/Form/actions";
 
 const screens = {
   appointment: AppointmentDetails,
@@ -19,20 +21,25 @@ const screens = {
 };
 
 const steps = [
-  { step: "appointment", title: "Appointment Details" },
-  { step: "patient", title: "Patient Contact Details" },
-  { step: "gp", title: "GP Contact Details" },
-  { step: "address", title: "Patient Address" },
-  { step: "consent", title: "Consent" },
+  { step: "appointment", title: "Appointment Details", key: "appointmentDetails" },
+  { step: "patient", title: "Patient Contact Details", key: "patientDetails" },
+  { step: "gp", title: "GP Contact Details", key: "gpDetails" },
+  { step: "address", title: "Patient Address", key: "patientAddress" },
+  { step: "consent", title: "Consent", key: "consent" },
 ];
 
 const AppointmentForm = () => {
   const [stepsCounter, setStepsCounter] = useState(0);
 
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const formData = {
+      formField: steps[stepsCounter].key,
+      data,
+    };
+    dispatch(updateForm(formData));
     if (stepsCounter < steps.length - 1) {
       setStepsCounter((prevStep) => prevStep + 1);
     }

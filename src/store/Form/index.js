@@ -1,15 +1,17 @@
 import { UPDATE_FORM } from "./actionsType";
 
 const initialState = {
-  form: "test",
+  formData: {},
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_FORM:
+      const { formField, data } = action.payload.data;
+      console.log(formField, data);
       return {
         ...state,
-        form: action.payload.data,
+        formData: { [formField]: data },
       };
     default:
       return state;
