@@ -17,6 +17,10 @@
   margin-bottom: 40px;
 }
 
+.address__wrapper {
+  margin-bottom: 20px;
+}
+
 .date__section__wrapper {
   display: flex;
   justify-content: space-between;

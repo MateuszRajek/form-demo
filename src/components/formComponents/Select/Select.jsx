@@ -1,10 +1,10 @@
 import Label from "../Label";
 import "./Select.css";
 
-const Select = ({ register, options, field, label }) => {
+const Select = ({ register, options, field, label, bottomLabel }) => {
   return (
-    <>
-      <Label label={label} />
+    <div className="select__wrapper">
+      {label && <Label label={label} />}
       <select className="form__select" {...register(field)}>
         {options.map((option) => (
           <option value={option} key={option}>
@@ -12,7 +12,8 @@ const Select = ({ register, options, field, label }) => {
           </option>
         ))}
       </select>
-    </>
+      {bottomLabel && <label className="form__input__label">{bottomLabel}</label>}
+    </div>
   );
 };
 

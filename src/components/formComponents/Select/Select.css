@@ -3,3 +3,7 @@
   padding: 5px 10px;
   color: var(--grey);
 }
+
+.select__wrapper {
+  flex-grow: 1;
+}
