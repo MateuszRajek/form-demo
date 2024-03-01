@@ -7,11 +7,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_FORM:
-      const { formField, data } = action.payload.data;
-      console.log(formField, data);
+      const { data } = action.payload;
       return {
         ...state,
-        formData: { [formField]: data },
+        formData: data,
       };
     default:
       return state;

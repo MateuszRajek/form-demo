@@ -35,11 +35,8 @@ const AppointmentForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    const formData = {
-      formField: steps[stepsCounter].key,
-      data,
-    };
-    dispatch(updateForm(formData));
+    dispatch(updateForm(data));
+
     if (stepsCounter < steps.length - 1) {
       setStepsCounter((prevStep) => prevStep + 1);
     }
