@@ -1,0 +1,5 @@
+.form__fields__label {
+  margin-bottom: 5px;
+  color: var(--dark-blue);
+  font-weight: bold;
+}
