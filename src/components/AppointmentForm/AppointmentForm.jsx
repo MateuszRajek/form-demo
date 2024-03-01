@@ -8,7 +8,7 @@ import PatientDetails from "../FormSteps/PatientDetails";
 import "./AppointmentForm.css";
 import FormHeader from "../FormHeader";
 import Button from "../formComponents/Button";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { updateForm } from "../../store/Form/actions";
 import { ProgressBar } from "react-bootstrap";
@@ -34,6 +34,7 @@ function formatDate(date) {
 
 const AppointmentForm = () => {
   const [stepsCounter, setStepsCounter] = useState(0);
+  const [confirmatioMessage, setConfirmationMessage] = useState(false);
 
   const {
     control,
@@ -55,6 +56,10 @@ const AppointmentForm = () => {
 
     if (stepsCounter < steps.length - 1) {
       setStepsCounter((prevStep) => prevStep + 1);
+    }
+
+    if (stepsCounter === steps.length - 1) {
+      setConfirmationMessage(true);
     }
   };
 
@@ -80,6 +85,13 @@ const AppointmentForm = () => {
           <Button label="Next" color="dark" type="submit" />
         </div>
       </Form>
+      {confirmatioMessage && (
+        <div className="confirmation__modal">
+          <div className="confirmation__modal__box">
+            <p className="confirmation__modal__message">Your form was succesfully submitted</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

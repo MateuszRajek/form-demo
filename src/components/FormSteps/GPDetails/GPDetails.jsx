@@ -23,7 +23,7 @@ const GPDetails = ({ register, errors }) => {
         <FormHeader stepTitle="Medical Insurance Details" />
         <Label label="Medical insurer" required />
         {insurerCompanies.map((insurer) => (
-          <Checkbox register={register} field="MedicalInsurer" type="radio" label={insurer} value={insurer} rounded required />
+          <Checkbox register={register} field="MedicalInsurer" type="radio" label={insurer} value={insurer} rounded required key={insurer} />
         ))}
         {errors.MedicalInsurer && <Error />}
       </div>

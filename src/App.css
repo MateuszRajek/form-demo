@@ -6,12 +6,14 @@
 
 :root {
   --background: rgba(210, 231, 247, 0.7);
+  --modal-background: rgba(81, 83, 87, 0.5);
   --dark-blue: #062f78;
   --light-blue: #6ce5f5;
   --light-grey: #abb1ba;
   --grey: #868f9e;
   --dark-grey: #515357;
   --warning: #ab150f;
+  --white: #ffffff;
 }
 
 .app__container {

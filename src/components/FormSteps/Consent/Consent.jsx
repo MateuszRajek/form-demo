@@ -10,10 +10,10 @@ const Consent = ({ register, errors }) => {
         <Label label="Medical insurer" required />
         {consentOptions.map(({ consent, text }) => {
           return (
-            <>
+            <div key={consent}>
               <Checkbox register={register} field={consent} type="checkbox" label={text} required />
               {errors[consent] && <Error />}
-            </>
+            </div>
           );
         })}
       </div>
