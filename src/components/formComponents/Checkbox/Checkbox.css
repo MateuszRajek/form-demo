@@ -1,0 +1,43 @@
+.radio__input {
+  display: none;
+}
+
+.radio__label {
+  display: flex;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.radio__span {
+  position: relative;
+  line-height: 22px;
+}
+
+.radio__span:before,
+.radio__span:after {
+  content: "";
+}
+
+.radio__span:before {
+  border: 1px solid var(--dark-blue);
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.radio__span:after {
+  background: var(--dark-blue);
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: 300ms;
+  opacity: 0;
+}
+
+.radio__input:checked + .radio__span:after {
+  opacity: 1;
+}
