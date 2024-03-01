@@ -13,5 +13,12 @@ const consentOptions = [
     text: "Consent to sharing your data with Vhi Healthcara",
   },
 ];
+const steps = [
+  { step: "appointment", title: "Appointment Details", key: "appointmentDetails" },
+  { step: "patient", title: "Patient Contact Details", key: "patientDetails" },
+  { step: "address", title: "Patient Address", key: "patientAddress" },
+  { step: "gp", title: "GP Contact Details", key: "gpDetails" },
+  { step: "consent", title: "Consent", key: "consent" },
+];
 
-export { appointmentType, locationData, insurerCompanies, countries, consentOptions };
+export { appointmentType, locationData, insurerCompanies, countries, consentOptions, steps };
