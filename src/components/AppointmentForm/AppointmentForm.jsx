@@ -11,20 +11,21 @@ import Button from "../formComponents/Button";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { updateForm } from "../../store/Form/actions";
+import { ProgressBar } from "react-bootstrap";
 
 const screens = {
   appointment: AppointmentDetails,
   patient: PatientDetails,
-  gp: GPDetails,
   address: PatientAddress,
+  gp: GPDetails,
   consent: Consent,
 };
 
 const steps = [
   { step: "appointment", title: "Appointment Details", key: "appointmentDetails" },
   { step: "patient", title: "Patient Contact Details", key: "patientDetails" },
-  { step: "gp", title: "GP Contact Details", key: "gpDetails" },
   { step: "address", title: "Patient Address", key: "patientAddress" },
+  { step: "gp", title: "GP Contact Details", key: "gpDetails" },
   { step: "consent", title: "Consent", key: "consent" },
 ];
 
@@ -62,9 +63,15 @@ const AppointmentForm = () => {
 
   const ActiveScreen = screens[steps[stepsCounter].step];
 
+  const stepsCounterText = `Step ${stepsCounter + 1} of ${steps.length}`;
+  const progress = ((stepsCounter + 1) / steps.length) * 100;
+  const stepTitle = steps[stepsCounter].title;
+
   return (
     <div className="form__container">
-      <FormHeader stepsCounter={stepsCounter} steps={steps} />
+      <p className="progress__bar__counter">{stepsCounterText}</p>
+      <ProgressBar className="custom__progress__bar" style={{ backgroundColor: "rgb(210, 231, 247)" }} label={`${progress}%`} now={progress} />
+      <FormHeader stepTitle={stepTitle} />
       <Form onSubmit={onSubmit} handleSubmit={handleSubmit}>
         <ActiveScreen register={register} control={control} />
         <div className="buttons__wrapper">

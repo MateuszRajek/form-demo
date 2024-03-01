@@ -38,6 +38,11 @@
   opacity: 0;
 }
 
+.radio__span--round:before,
+.radio__span--round:after {
+  border-radius: 50%;
+}
+
 .radio__input:checked + .radio__span:after {
   opacity: 1;
 }
