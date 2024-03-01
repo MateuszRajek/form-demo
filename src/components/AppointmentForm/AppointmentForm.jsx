@@ -7,7 +7,8 @@ import PatientAddress from "../FormSteps/PatientAddress";
 import PatientDetails from "../FormSteps/PatientDetails";
 import "./AppointmentForm.css";
 import FormHeader from "../FormHeader";
-import Button from "../Button";
+import Button from "../formComponents/Button";
+import { useForm } from "react-hook-form";
 
 const screens = {
   appointment: AppointmentDetails,
@@ -28,8 +29,10 @@ const steps = [
 const AppointmentForm = () => {
   const [stepsCounter, setStepsCounter] = useState(0);
 
-  const onNextClick = (event) => {
-    event.preventDefault();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
     if (stepsCounter < steps.length - 1) {
       setStepsCounter((prevStep) => prevStep + 1);
     }
@@ -43,12 +46,12 @@ const AppointmentForm = () => {
 
   return (
     <div className="form__container">
-      <Form onSubmit={onNextClick}>
-        <FormHeader stepsCounter={stepsCounter} steps={steps} />
-        <ActiveScreen />
+      <FormHeader stepsCounter={stepsCounter} steps={steps} />
+      <Form onSubmit={onSubmit} handleSubmit={handleSubmit}>
+        <ActiveScreen register={register} />
         <div className="buttons__wrapper">
           {stepsCounter !== 0 && <Button label="Previous" color="light" type="button" action={onPreviousClick} />}
-          <Button label="Next" color="dark" type="submit" action={onNextClick} />
+          <Button label="Next" color="dark" type="submit" />
         </div>
       </Form>
     </div>
