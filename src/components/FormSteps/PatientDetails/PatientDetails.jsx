@@ -5,8 +5,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./PatientDetails.css";
 import Checkbox from "../../formComponents/Checkbox";
+import Error from "../../formComponents/Error";
 
-const PatientDetails = ({ register, control }) => {
+const PatientDetails = ({ register, control, errors, email }) => {
   return (
     <>
       <div className="section__wrapper">
@@ -19,9 +20,11 @@ const PatientDetails = ({ register, control }) => {
       <div className="section__wrapper">
         <Label label="Email" required />
         <div className="inputs__wrapper">
-          <Input register={register} type="email" label="Enter Email" field="Email" />
-          <Input register={register} type="email" label="Confirm Email" field="ConfirmedEmail" />
+          <Input register={register} type="email" label="Enter Email" field="Email" required errors={errors} />
+          <Input register={register} type="email" label="Confirm Email" field="ConfirmedEmail" required errors={errors} validate={email} />
         </div>
+        {(errors.Email || (errors.ConfirmedEmail && !errors.ConfirmedEmail.message)) && <Error />}
+        {errors.ConfirmedEmail && errors.ConfirmedEmail.message && <Error message={errors.ConfirmedEmail.message} />}
       </div>
       <div className="section__wrapper">
         <Label label="Phone" />
@@ -54,8 +57,9 @@ const PatientDetails = ({ register, control }) => {
           <div>
             <Label label="Over 16 years old?" required />
           </div>
-          <Checkbox type="radio" label="over 16" register={register} field="AgeConfirmation" value={true} />
-          <Checkbox type="radio" label="under 16" register={register} field="AgeConfirmation" value={false} />
+          <Checkbox type="radio" label="over 16" register={register} field="AgeConfirmation" value={true} errors={errors} required />
+          <Checkbox type="radio" label="under 16" register={register} field="AgeConfirmation" value={false} errors={errors} required />
+          {errors.AgeConfirmation && <Error />}
         </div>
       </div>
     </>

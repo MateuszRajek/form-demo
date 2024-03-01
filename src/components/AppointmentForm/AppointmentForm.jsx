@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { updateForm } from "../../store/Form/actions";
 import { ProgressBar } from "react-bootstrap";
+import { steps } from "../../data/mocksData";
 
 const screens = {
   appointment: AppointmentDetails,
@@ -20,14 +21,6 @@ const screens = {
   gp: GPDetails,
   consent: Consent,
 };
-
-const steps = [
-  { step: "appointment", title: "Appointment Details", key: "appointmentDetails" },
-  { step: "patient", title: "Patient Contact Details", key: "patientDetails" },
-  { step: "address", title: "Patient Address", key: "patientAddress" },
-  { step: "gp", title: "GP Contact Details", key: "gpDetails" },
-  { step: "consent", title: "Consent", key: "consent" },
-];
 
 function formatDate(date) {
   if (date) {
@@ -42,8 +35,16 @@ function formatDate(date) {
 const AppointmentForm = () => {
   const [stepsCounter, setStepsCounter] = useState(0);
 
-  const { control, register, handleSubmit } = useForm();
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
   const dispatch = useDispatch();
+
+  const email = watch("Email");
 
   const onSubmit = (data) => {
     if (data.date && typeof data.date === "object") {
@@ -73,7 +74,7 @@ const AppointmentForm = () => {
       <ProgressBar className="custom__progress__bar" style={{ backgroundColor: "rgb(210, 231, 247)" }} label={`${progress}%`} now={progress} />
       <FormHeader stepTitle={stepTitle} />
       <Form onSubmit={onSubmit} handleSubmit={handleSubmit}>
-        <ActiveScreen register={register} control={control} />
+        <ActiveScreen register={register} control={control} errors={errors} email={email} />
         <div className="buttons__wrapper">
           {stepsCounter !== 0 && <Button label="Previous" color="light" type="button" action={onPreviousClick} />}
           <Button label="Next" color="dark" type="submit" />

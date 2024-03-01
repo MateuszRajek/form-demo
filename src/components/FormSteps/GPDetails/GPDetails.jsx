@@ -1,11 +1,12 @@
 import { insurerCompanies } from "../../../data/mocksData";
 import FormHeader from "../../FormHeader";
 import Checkbox from "../../formComponents/Checkbox";
+import Error from "../../formComponents/Error";
 import Input from "../../formComponents/Input";
 import Label from "../../formComponents/Label";
 import TextArea from "../../formComponents/TextArea";
 
-const GPDetails = ({ register }) => {
+const GPDetails = ({ register, errors }) => {
   return (
     <>
       <div className="section__wrapper">
@@ -22,8 +23,9 @@ const GPDetails = ({ register }) => {
         <FormHeader stepTitle="Medical Insurance Details" />
         <Label label="Medical insurer" required />
         {insurerCompanies.map((insurer) => (
-          <Checkbox register={register} field="MedicalInsurer" type="radio" label={insurer} value={insurer} rounded />
+          <Checkbox register={register} field="MedicalInsurer" type="radio" label={insurer} value={insurer} rounded required />
         ))}
+        {errors.MedicalInsurer && <Error />}
       </div>
     </>
   );
