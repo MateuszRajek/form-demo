@@ -1,0 +1,15 @@
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.form__input--text {
+  flex-grow: 1;
+  padding: 5px 10px;
+  min-width: 250px;
+}
+
+.form__input__label {
+  color: var(--dark-grey);
+}

@@ -1,0 +1,4 @@
+.form__error__message {
+  color: var(--warning);
+  font-size: 14px;
+}

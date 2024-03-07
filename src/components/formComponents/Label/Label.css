@@ -1,0 +1,13 @@
+.form__fields__label {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--dark-blue);
+  font-weight: bold;
+}
+
+.form__fields__label--required {
+  margin-left: 5px;
+  color: var(--warning);
+  font-size: 12px;
+  font-style: italic;
+}

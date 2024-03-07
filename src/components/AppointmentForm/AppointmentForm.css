@@ -1,0 +1,70 @@
+.form__container {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+
+.buttons__wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.section__wrapper {
+  margin-bottom: 40px;
+}
+
+.address__wrapper {
+  margin-bottom: 20px;
+}
+
+.date__section__wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.confirmation__modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--modal-background);
+}
+
+.confirmation__modal__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 300px;
+  padding: 10px;
+  background-color: var(--white);
+}
+
+.confirmation__modal__message {
+  color: var(--dark-blue);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .confirmation__modal__box {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .form__container {
+    width: 760px;
+  }
+}
